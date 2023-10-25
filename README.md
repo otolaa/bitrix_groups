@@ -1,4 +1,16 @@
-## include for index in page /groups/
+## complex component in /local/bitrix/ for group user
+```
+# complex component
+groups
+
+# list group
+groups.line
+
+# detail group
+groups.detail
+```
+
+## include complex component for index in page /groups/index.php
 ```
 <?$APPLICATION->IncludeComponent(
 	"bitrix:groups",
@@ -18,4 +30,16 @@
 	),
 	false
 );?>
+```
+
+## add array in urlrewrite.php
+
+```
+array (
+    'CONDITION' => '#^/groups/#',
+    'RULE' => '',
+    'ID' => 'bitrix:groups',
+    'PATH' => '/groups/index.php',
+    'SORT' => 100,
+  )
 ```
